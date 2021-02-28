@@ -1,0 +1,26 @@
+{% extends "layout/base.html" %}
+{% block content %}
+
+    {% for item in dogs %}
+        <div class="card mb-3" >
+        <h4 class="card-header"><a href="{% url 'by_dog' item.pk %}">{{ item.dogName }}</a></h4>
+    <div class="row">
+        <div class="col-lg-5">
+            <a href="{% url 'by_dog' item.pk %}">
+                            <img src="{{ item.photo.url }}" width="300" height="250"  alt=""/>
+                 </a>
+        </div>
+
+            <div class="col-lg-7">
+
+                <h5 class="card-title">{{ item.description }}</h5>
+                <p class="card-text">Возраст: {{ item.age }}</p>
+                <p class="card-text">Цена: {{ item.price}}</p>
+            </div>
+
+        </div>
+        </div>
+    {% endfor %}
+
+
+{% endblock %}
