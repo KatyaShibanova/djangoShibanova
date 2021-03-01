@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Deals, Dogs, DogClasses
+from .models import Deals, Dogs, Characters
 
 
 class DogsAdmin(admin.ModelAdmin):
@@ -16,5 +16,5 @@ class DealsAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Deals, DealsAdmin)
-admin.site.register(DogClasses)
+admin.site.register(Characters)
 admin.site.register(Dogs, DogsAdmin)

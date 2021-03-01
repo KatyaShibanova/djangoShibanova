@@ -37,7 +37,7 @@ def image_upload_view(request):
             return redirect('index')
     else:
         form = DogsForm()
-    return render(request, 'rent/createDogs.html', {'form': form})
+    return render(request, 'blog/createDogs.html', {'form': form})
 
 
 # регистрация
@@ -57,7 +57,7 @@ def get_deals(request):
         'apps': applications
     }
 
-    return render(request, template_name='rent/deals.html', context=context)
+    return render(request, template_name='blog/deals.html', context=context)
 
 
 # подать заявку на собаку
@@ -69,7 +69,7 @@ def add_deal(request, dog_id):
             "message": "Вы уже подавали заявку на данную собаку",
             'current_dog': current_dog
         }
-        return render(request, 'rent/by_dog.html', context)
+        return render(request, 'blog/by_dog.html', context)
     except Deals.DoesNotExist:
         new_deal = Deals(client=request.user, dogs=current_dog, additionalInfo=request.POST['addInfo'])
         new_deal.save()
@@ -77,4 +77,4 @@ def add_deal(request, dog_id):
         context = {
             'deals': deals
         }
-        return render(request, 'rent/deals.html', context)
+        return render(request, 'blog/deals.html', context)

@@ -22,7 +22,7 @@ class Dogs(models.Model):
     photo = models.ImageField(verbose_name='Изображения',
                               upload_to='photos/%Y/%m/%d/', blank=True)
 
-    dogClass = models.ManyToManyField('DogClasses', verbose_name='Классификация', blank=True)
+    character = models.ManyToManyField('Characters', verbose_name='Черты характера', blank=True)
 
     class Meta:
         verbose_name = 'Собака'
@@ -32,16 +32,16 @@ class Dogs(models.Model):
         return self.dogName
 
 
-class DogClasses(models.Model):
-    className = models.CharField(verbose_name='Классификация',
-                                 max_length=50)
+class Characters(models.Model):
+    characterType = models.CharField(verbose_name='Черта характера',
+                                     max_length=50)
 
     class Meta:
-        verbose_name = 'Классификация'
-        verbose_name_plural = 'Классификация'
+        verbose_name = 'Черта характера'
+        verbose_name_plural = 'Черта характера'
 
     def __str__(self):
-        return self.className
+        return self.characterType
 
 
 class Deals(models.Model):
