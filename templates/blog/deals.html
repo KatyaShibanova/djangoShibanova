@@ -1,9 +1,9 @@
 {% extends "layout/base.html" %}
 {% block content %}
     {% for deal in deals %}
-        <p>{{ deal.additionalInfo }}</p>
+        <p>{{ deal.date}}</p>
         <p><a href="{% url 'by_dog' deal.dogs.pk %}">{{ deal.dogs.dogName }}</a></p>
-        <p>{{ deal.date}}</p><br>
+        <p>{{ deal.additionalInfo }}</p>
         {% if user.is_staff %}
             <p>{{ deal.client.first_name}} {{ deal.client.last_name }} Почта: {{ deal.client.email }}</p><br><br>
         {% endif %}

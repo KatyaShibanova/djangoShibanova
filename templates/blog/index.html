@@ -2,23 +2,18 @@
 {% block content %}
 
     {% for item in dogs %}
-        <div class="card mb-3" >
-        <h4 class="card-header"><a href="{% url 'by_dog' item.pk %}">{{ item.dogName }}</a></h4>
-    <div class="row">
-        <div class="col-lg-5">
-            <a href="{% url 'by_dog' item.pk %}">
-                            <img src="{{ item.photo.url }}" width="300" height="250"  alt=""/>
+        <div class="d-flex justify-content-center">
+    <div class="col-sm-6">
+    <div class="card text-center" style="width:700px;height:500px">
+      <div class="card-body" >
+          <a href="{% url 'by_dog' item.pk %}">
+                            <img src="{{ item.photo.url }}" width="400" height="300"  alt=""/>
                  </a>
-        </div>
-
-            <div class="col-lg-7">
-
-                <h5 class="card-title">{{ item.description }}</h5>
-                <p class="card-text">Возраст: {{ item.age }}</p>
-                <p class="card-text">Цена: {{ item.price}}</p>
-            </div>
-
-        </div>
+        <h5 class="card-title mt-3"><a href="{% url 'by_dog' item.pk %}">{{ item.dogName }}</a></h5>
+        <p class="card-text mb-3" >{{ item.description }}</p>
+      </div>
+    </div>
+  </div>
         </div>
     {% endfor %}
 

@@ -1,15 +1,52 @@
 {% extends "layout/base.html" %}
 {% block title %}{{ current_dog.dogName }}{% endblock %}
 {% block content %}
-    <div>
+    <div class="mb-3">
         <h2>{{ current_dog.dogName }}</h2>
-        <img src="{{ current_dog.photo.url }}" alt=""/>
-        <p>{{ current_dog.description }}</p>
-        <p>Вес: {{ current_dog.weight }}</p>
-        <p>Рост: {{ current_dog.height }}</p>
-        <p>Возраст: {{ current_dog.age }}</p>
-        <p>Цена: {{ current_dog.price }}</p>
+        <img src="{{ current_dog.photo.url }}" width="700" height="500" alt=""/>
 
+    <div class="container mt-3">
+        <div class="row justify-content-start">
+    <div class="col-4">
+      <p>Вес: </p>
+    </div>
+    <div class="col-4">
+      <p>{{ current_dog.weight }}</p>
+    </div>
+        </div>
+    </div>
+    <div class="container">
+             <div class="row justify-content-start">
+    <div class="col-4">
+      <p>Рост: </p>
+    </div>
+    <div class="col-4">
+      <p>{{ current_dog.height }}</p>
+    </div>
+  </div>
+    </div>
+    <div class="container">
+             <div class="row justify-content-start">
+    <div class="col-4">
+      <p>Возраст: </p>
+    </div>
+    <div class="col-4">
+      <p>{{ current_dog.age }}</p>
+    </div>
+  </div>
+    </div>
+    <div class="container">
+             <div class="row justify-content-start">
+    <div class="col-4">
+      <p>Цена: </p>
+    </div>
+    <div class="col-4">
+      <p>{{ current_dog.price }}</p>
+    </div>
+  </div>
+    </div>
+
+        <p>{{ current_dog.description }}</p>
         {% if  current_dog.character.all.exists%}
         <p>Черты характера: </p>
         {% for purp in current_dog.character.all %}

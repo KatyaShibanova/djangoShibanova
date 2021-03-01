@@ -1,10 +1,12 @@
 {% extends "layout/base.html" %}
-{% block title %}Добавление площади{% endblock %}
+{% block title %}Добавление собаки{% endblock %}
 {% block content %}
     <h1>Добавление собаки</h1>
+    <div class="d-flex justify-content-center mt-3 mb-3">
 <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
         {{ form.as_p }}
         <input type="submit" value="Добавить">
     </form>
+    </div>
 {% endblock %}

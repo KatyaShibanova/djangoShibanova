@@ -6,6 +6,6 @@ urlpatterns = [
     path('<int:dog_id>', by_dog, name='by_dog'),
     path('dogs/', index, name='dogs'),
     path('add/', image_upload_view, name='add'),
-    path('apps/', get_deals, name='deals'),
+    path('deals/', get_deals, name='deals'),
     path('<int:dog_id>/addDeal', add_deal, name='addDeal')
 ]

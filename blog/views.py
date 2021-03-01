@@ -50,11 +50,11 @@ class SignUpView(generic.CreateView):
 # отображение заявок пользователя
 def get_deals(request):
     if request.user.is_staff:
-        applications = Deals.objects.all()
+        deals = Deals.objects.all()
     else:
-        applications = Deals.objects.all().filter(client=request.user)
+        deals = Deals.objects.all().filter(client=request.user)
     context = {
-        'apps': applications
+        'deals': deals
     }
 
     return render(request, template_name='blog/deals.html', context=context)
