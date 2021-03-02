@@ -55,12 +55,16 @@
         {% endif %}
 
     {% if not user.is_staff %}
+        {% if user.is_authenticated %}
     <form action="{% url 'addDeal' current_dog.pk%}" method="post">
         {% csrf_token %}
         Дополнительная информация для заявки: <input type="text" name="addInfo"/>
         <button type="submit" name='mybtn2'>Подать заявку</button>
     </form>
+            {% else %}
+            <b>Для оформления заявки войдите в систему</b>
     {{ message }}
+    {% endif %}
     {% endif %}
     </div>
 {% endblock %}
